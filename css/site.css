@@ -20,7 +20,7 @@
   --gold: #f8d838;
   --ink: #3f403e;
   --paper: #fcfcfb;
-  --edge: min(1680px, calc(100% - 3.5rem));
+  --edge: min(1680px, calc(100% - 6rem));
   color-scheme: light;
 }
 
@@ -373,14 +373,14 @@ a { color: inherit; }
 .group { margin-top: 3.5rem; scroll-margin-top: 11rem; }
 
 .shots {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0.75rem;
+  columns: 3;
+  column-gap: 0.6rem;
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
+.shots li { break-inside: avoid; margin: 0; }
 .shots a { display: block; }
 .shots img { display: block; width: 100%; height: auto; }
 
@@ -403,7 +403,7 @@ a { color: inherit; }
   .band.flip figure { order: 0; }
   .band figure { min-height: 16rem; }
   .copy { padding: 1.6rem 1.15rem 2rem; }
-  .shots { grid-template-columns: 1fr 1fr; gap: 0.45rem; }
+  .shots { columns: 2; }
   .tick { display: none; }
   .bar-red { height: 1.4rem; }
   .plate-title { font-size: clamp(1.85rem, 9vw, 2.8rem); }
