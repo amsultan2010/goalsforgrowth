@@ -270,6 +270,7 @@ a { color: inherit; }
 .band {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  overflow: hidden;
 }
 
 .band figure {
