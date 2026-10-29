@@ -50,8 +50,7 @@ a { color: inherit; }
   a:hover { text-decoration-thickness: 2px; }
   a:active { transform: translateY(1px); }
   .mast nav a:hover,
-  .jumps a:hover,
-  .days a:hover { background: var(--gold); color: var(--ink); }
+  .jumps a:hover { background: var(--gold); color: var(--ink); }
 }
 
 .hero {
@@ -90,7 +89,7 @@ a { color: inherit; }
 .plate {
   width: var(--edge);
   margin: 0 auto;
-  padding: 2rem 0 2.25rem;
+  padding: 1.5rem 0 0;
 }
 
 .frame {
@@ -190,42 +189,9 @@ a { color: inherit; }
   padding: 0.14em 0.2em 0.18em;
 }
 
-.days {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 0.85rem;
-  list-style: none;
-  margin: 1.35rem 0.4rem 0;
-  padding: 0;
-}
-
-.days li {
-  display: grid;
-  font-weight: 700;
-  font-size: 1.5rem;
-  text-align: center;
-}
-
-.days a {
-  display: grid;
-  place-items: center;
-  min-height: 64px;
-  padding: 0.4rem;
-  color: inherit;
-  text-decoration: none;
-}
-
-.days .green { background: var(--green); color: var(--ink); }
-.days .red { background: var(--red); color: var(--paper); }
-.days .gold { background: var(--gold); color: var(--ink); }
-
-.tally .green,
-.plays .green { background: var(--green); color: var(--ink); }
-.tally .red,
-.plays .red { background: var(--red); color: var(--paper); }
-.tally .gold,
-.plays .gold { background: var(--gold); color: var(--ink); }
-.tally .ink { background: var(--ink); color: var(--paper); }
+.plays .green { background: var(--green); }
+.plays .red { background: var(--red); }
+.plays .ink { background: var(--ink); }
 
 .facts {
   max-width: 62ch;
@@ -298,30 +264,6 @@ a { color: inherit; }
 
 .lede { margin: 0 0 1.35rem; max-width: 46ch; }
 
-.tally {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.tally li {
-  padding: 1.5rem 1.15rem 1.7rem;
-  border-right: 2px solid var(--ink);
-  font-weight: 700;
-}
-
-.tally li:last-child { border-right: 0; }
-
-.tally b {
-  display: block;
-  margin-bottom: 0.35rem;
-  font-size: clamp(2.8rem, 4vw, 4.4rem);
-  line-height: 0.9;
-  letter-spacing: -0.04em;
-}
-
 .band {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -331,6 +273,7 @@ a { color: inherit; }
   position: relative;
   margin: 0;
   min-height: 28rem;
+  overflow: hidden;
 }
 
 .band img {
@@ -341,7 +284,11 @@ a { color: inherit; }
   object-fit: cover;
 }
 
-.band img.paper { object-position: center top; }
+.band img.paper {
+  object-position: center top;
+  transform: scale(1.7);
+  transform-origin: center top;
+}
 
 .band.flip figure { order: 2; }
 
@@ -381,17 +328,31 @@ a { color: inherit; }
 }
 
 .plays li {
-  padding: 0.85rem 1rem;
+  display: grid;
+  place-items: center;
+  min-height: 4.75rem;
+  padding: 0.8rem 1rem;
+  color: var(--paper);
+  font-size: clamp(1.85rem, 3vw, 2.6rem);
   font-weight: 700;
+  line-height: 1.1;
+  text-align: center;
   scroll-margin-top: 5.5rem;
 }
 
 .site-foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem 1.5rem;
+  flex-wrap: wrap;
   padding: 1.5rem 1.25rem max(1.5rem, env(safe-area-inset-bottom));
   border-top: 1px solid var(--ink);
 }
 
 .site-foot p { margin: 0; }
+
+.site-foot p:last-child { margin-left: auto; }
 
 .site-foot a { font-weight: 700; }
 
@@ -438,17 +399,6 @@ a { color: inherit; }
   .hero { min-height: 88svh; }
   .plate { padding-top: 1.35rem; }
   .frame { margin-inline: 0; }
-  .days {
-    display: flex;
-    gap: 0.55rem;
-    margin-inline: 0;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    scrollbar-width: thin;
-  }
-  .days li { flex: 0 0 9.25rem; scroll-snap-align: start; }
-  .tally { grid-template-columns: 1fr; }
-  .tally li { border-right: 0; border-bottom: 2px solid var(--ink); }
   .band, .band.flip { grid-template-columns: 1fr; }
   .band.flip figure { order: 0; }
   .band figure { min-height: 16rem; }
