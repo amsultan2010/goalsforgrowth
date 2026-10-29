@@ -191,7 +191,7 @@ a { color: inherit; }
 
 .plays .green { background: var(--green); }
 .plays .red { background: var(--red); }
-.plays .ink { background: var(--ink); }
+.plays .gold { background: var(--gold); color: var(--ink); }
 
 .facts {
   max-width: 62ch;
