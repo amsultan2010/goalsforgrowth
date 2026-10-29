@@ -70,11 +70,23 @@ mm.add("(prefers-reduced-motion: no-preference)", () => {
 mm.add(fine, () => {
   const lenis = new Lenis({
     autoRaf: false,
-    anchors: true,
     duration: 1.15,
     easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
     smoothWheel: true
   });
+  const onAnchor = (event) => {
+    const link = event.target.closest("a[href*='#']");
+    if (!link) return;
+    const url = new URL(link.href, location.href);
+    if (url.pathname !== location.pathname || !url.hash) return;
+    const target = document.querySelector(url.hash);
+    if (!target) return;
+    event.preventDefault();
+    history.pushState(null, "", url.hash);
+    const margin = parseFloat(getComputedStyle(target).scrollMarginTop) || 0;
+    lenis.scrollTo(target, { offset: -margin });
+  };
+  document.addEventListener("click", onAnchor);
   lenis.on("scroll", ScrollTrigger.update);
   const tick = (time) => lenis.raf(time * 1000);
   gsap.ticker.add(tick);
@@ -118,6 +130,7 @@ mm.add(fine, () => {
 
   return () => {
     if (ticks.length) window.removeEventListener("pointermove", onMove);
+    document.removeEventListener("click", onAnchor);
     gsap.ticker.remove(tick);
     lenis.destroy();
   };
