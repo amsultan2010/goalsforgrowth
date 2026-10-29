@@ -1,3 +1,20 @@
+const hero = document.querySelector(".hero video");
+if (hero && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
+  hero.muted = true;
+  hero.playsInline = true;
+  const play = () => {
+    if (!hero.paused) return;
+    const pending = hero.play();
+    if (pending) pending.catch(() => {});
+  };
+  play();
+  hero.addEventListener("loadeddata", play);
+  hero.addEventListener("ended", play);
+  document.addEventListener("visibilitychange", () => {
+    if (document.visibilityState === "visible") play();
+  });
+}
+
 gsap.registerPlugin(ScrollTrigger);
 
 const mm = gsap.matchMedia();
