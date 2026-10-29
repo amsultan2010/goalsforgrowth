@@ -389,7 +389,7 @@ a { color: inherit; }
 .press figcaption { margin-top: 0.6rem; max-width: 62ch; }
 
 .clip {
-  margin-top: 0.75rem;
+  margin: 0 0 1.75rem;
 }
 .clip video { display: block; width: 100%; height: auto; background: var(--ink); }
 
