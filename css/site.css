@@ -51,6 +51,7 @@ a { color: inherit; }
 
 @media (hover: hover) and (pointer: fine) {
   a:hover { text-decoration-thickness: 2px; }
+  .puck { cursor: grab; }
   a:active { transform: translateY(1px); }
   .mast nav a:hover,
   .jumps a:hover { background: var(--gold); color: var(--ink); }
@@ -98,6 +99,7 @@ a { color: inherit; }
 .frame {
   position: relative;
   margin: 0 1.5rem;
+  perspective: 800px;
 }
 
 .frame img {
@@ -279,6 +281,7 @@ a { color: inherit; }
   min-height: 28rem;
   overflow: hidden;
   clip-path: inset(0);
+  perspective: 800px;
 }
 
 .band img {
@@ -398,6 +401,60 @@ a { color: inherit; }
 }
 .clip video { display: block; width: 100%; height: auto; background: var(--ink); }
 
+.shards { position: absolute; z-index: 2; left: 0; right: 0; bottom: 14%; height: 0; }
+.shards span {
+  position: absolute;
+  left: 50%;
+  width: 14px;
+  height: 14px;
+  background: var(--gold);
+}
+.shards span:nth-child(1) { margin-left: -7rem; background: var(--red); }
+.shards span:nth-child(2) { margin-left: -3.5rem; background: var(--paper); }
+.shards span:nth-child(3) { margin-left: -7px; }
+.shards span:nth-child(4) { margin-left: 2.6rem; background: var(--red); }
+.shards span:nth-child(5) { margin-left: 6rem; background: var(--paper); }
+
+.kit-motion { display: flex; align-items: flex-end; gap: 1.25rem; margin-top: 0.25rem; color: var(--paper); }
+.plot-wrap { display: block; width: min(100%, 280px); height: auto; }
+.rider { fill: var(--gold); }
+.morph { display: block; flex: none; }
+.morph-target { fill: var(--gold); }
+.puck {
+  flex: none;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--gold);
+  touch-action: none;
+}
+.tick-green { touch-action: none; }
+
+.frames { position: relative; width: 4.75rem; height: 4.75rem; margin-top: 0.4rem; }
+.swatch { position: absolute; inset: 0; }
+.swatch.green { background: var(--green); }
+.swatch.red { background: var(--red); }
+.swatch.gold { background: var(--gold); }
+.swatch:not(:last-child) { visibility: hidden; }
+
+.track-wrap { grid-column: 1 / -1; overflow: hidden; }
+.track { display: flex; width: max-content; }
+.panel { position: relative; flex: none; width: 42vw; height: 4.75rem; }
+.panel.green { background: var(--green); }
+.panel.red { background: var(--red); }
+.panel.gold { background: var(--gold); }
+.panel-mark {
+  position: absolute;
+  left: 0.6rem;
+  top: 50%;
+  width: 14px;
+  height: 14px;
+  margin-top: -7px;
+  background: var(--paper);
+}
+.panel.gold .panel-mark { background: var(--ink); }
+.panel-mark.is-set { left: auto; right: 0.6rem; }
+
 @media (max-width: 800px) {
   :root { --edge: min(1680px, calc(100% - 6rem)); }
   .mast-phone { display: flex; }
@@ -411,6 +468,7 @@ a { color: inherit; }
   .copy { padding: 1.6rem 1.15rem 2rem; }
   .page { width: min(1520px, calc(100% - 8rem)); }
   .shots { columns: 2; }
+  .track-wrap { overflow-x: auto; }
   .tick { display: none; }
   .bar-red { height: 1.4rem; }
   .plate-title { font-size: clamp(1.85rem, 9vw, 2.8rem); }
