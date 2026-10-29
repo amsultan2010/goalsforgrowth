@@ -29,7 +29,8 @@ The program is a school visit: a welcome day, then dribbling, passing, shooting,
 ## Capabilities and Constraints
 
 - Two public routes: `https://goalsforgrowth.site/` and `https://goalsforgrowth.site/gallery`.
-- Home hero is a looping video. The file is `combined_4clips_v2.mp4` (given from Downloads, not in the project folder yet).
+- Home hero is a looping video. The file is `combined_4clips_v2.mp4` (given from Downloads, not in the project folder yet). A direction picture may show a still in that slot. The built page plays the video there.
+- Keep the site simple. The pages carry the story, the numbers, the week, and the gallery. No extra sections.
 - Gallery groups are QAPS, NJV, and Winter 2025. Full school names were not given.
 - Say that Taimur Naeem runs it. Do not say he is the U15 FIFA World Cup participant. The one-to-one sessions with a U15 FIFA World Cup participant stay an unnamed fact from the brief.
 - 300+ kids coached across two public schools. Multiple newspaper pieces. Government workers appear in that coverage.
