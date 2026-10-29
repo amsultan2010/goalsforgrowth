@@ -20,13 +20,13 @@ mm.add("(prefers-reduced-motion: no-preference)", () => {
     });
   }
 
-  if (document.querySelector(".record")) {
-    ScrollTrigger.batch(".record", {
+  if (document.querySelector(".band")) {
+    ScrollTrigger.batch(".band", {
       start: "top 90%",
       once: true,
       onEnter: (batch) => {
         gsap.from(batch, {
-          x: 40,
+          y: 36,
           duration: 0.7,
           stagger: 0.08,
           ease: "power3.out"
