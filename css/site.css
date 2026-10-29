@@ -357,7 +357,7 @@ a { color: inherit; }
 .site-foot a { font-weight: 700; }
 
 .page {
-  width: var(--edge);
+  width: min(1520px, calc(100% - 18rem));
   margin: 0 auto;
   padding: max(1.25rem, env(safe-area-inset-top)) 0 4rem;
 }
@@ -404,6 +404,7 @@ a { color: inherit; }
   .band.flip figure { order: 0; }
   .band figure { min-height: 16rem; }
   .copy { padding: 1.6rem 1.15rem 2rem; }
+  .page { width: min(1520px, calc(100% - 8rem)); }
   .shots { columns: 2; }
   .tick { display: none; }
   .bar-red { height: 1.4rem; }
