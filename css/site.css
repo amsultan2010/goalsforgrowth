@@ -380,7 +380,7 @@ a { color: inherit; }
   padding: 0;
 }
 
-.shots li { break-inside: avoid; margin: 0; }
+.shots li { break-inside: avoid; margin: 0 0 0.5rem; }
 .shots a { display: block; }
 .shots img { display: block; width: 100%; height: auto; }
 
