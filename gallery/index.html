@@ -54,13 +54,25 @@
   </script>
 </head>
 <body>
-  <main class="page">
-    <nav class="page-nav" aria-label="Pages">
-      <a href="/">Home</a>
-      <a href="/gallery">Gallery</a>
+  <div class="dock">
+    <header class="mast">
+      <a class="name" href="/">Goals for Growth</a>
+      <nav aria-label="Pages">
+        <a href="/">Home</a>
+        <a href="/gallery" aria-current="page">Gallery</a>
+      </nav>
+    </header>
+    <nav class="jumps" aria-label="In this gallery">
+      <a href="#qaps">QAPS</a>
+      <a href="#njv">NJV</a>
+      <a href="#winter">Winter</a>
+      <a href="#papers">Papers</a>
     </nav>
+  </div>
+  <main class="page">
     <h1 class="display">Gallery</h1>
-    <section class="group">
+    <p class="lede">QAPS, NJV, and the winter 2025 sessions, plus the newspaper pages from 26 December 2025.</p>
+    <section class="group" id="qaps">
       <h2>QAPS 2025</h2>
       <ul class="shots">
         <li><a href="/media/qaps/qaps-01.jpg"><img src="/media/qaps/qaps-01.jpg" width="1600" height="1200" alt="QAPS students during the 2025 football week."></a></li>
@@ -78,7 +90,7 @@
 <li><a href="/media/qaps/qaps-13.jpg"><img src="/media/qaps/qaps-13.jpg" width="1600" height="1200" alt="QAPS students during the 2025 football week."></a></li>
       </ul>
     </section>
-    <section class="group">
+    <section class="group" id="njv">
       <h2>NJV 2025</h2>
       <ul class="shots">
         <li><a href="/media/njv/njv-01.jpg"><img src="/media/njv/njv-01.jpg" width="1600" height="1200" alt="A drill on the NJV school pitch in 2025."></a></li>
@@ -97,7 +109,7 @@
 <li><a href="/media/njv/njv-14.jpg"><img src="/media/njv/njv-14.jpg" width="1600" height="1200" alt="A drill on the NJV school pitch in 2025."></a></li>
       </ul>
     </section>
-    <section class="group">
+    <section class="group" id="winter">
       <h2>Winter 2025</h2>
       <ul class="shots">
         <li><a href="/media/winter/winter-01.jpg"><img src="/media/winter/winter-01.jpg" width="1600" height="1200" alt="Children and coaches at the winter 2025 session."></a></li>
@@ -123,7 +135,7 @@
         <figcaption>A clip from the winter session.</figcaption>
       </figure>
     </section>
-    <section class="group">
+    <section class="group" id="papers">
       <h2>Newspaper pages</h2>
       <ul class="press">
         <li>
