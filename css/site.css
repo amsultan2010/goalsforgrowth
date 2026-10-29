@@ -20,7 +20,7 @@
   --gold: #f8d838;
   --ink: #3f403e;
   --paper: #fcfcfb;
-  --edge: min(1680px, calc(100% - 6rem));
+  --edge: min(1680px, calc(100% - 12rem));
   color-scheme: light;
 }
 
@@ -394,6 +394,7 @@ a { color: inherit; }
 .clip video { display: block; width: 100%; height: auto; background: var(--ink); }
 
 @media (max-width: 800px) {
+  :root { --edge: min(1680px, calc(100% - 6rem)); }
   .mast-phone { display: flex; }
   .plate-nav { display: none; }
   .hero { min-height: 88svh; }
