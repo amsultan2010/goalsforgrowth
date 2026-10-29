@@ -1,18 +1,32 @@
 const hero = document.querySelector(".hero video");
 const playHero = () => {
-  if (!hero || hero.paused === false) return;
+  if (!hero || !hero.paused) return;
+  hero.muted = true;
+  hero.defaultMuted = true;
+  hero.playsInline = true;
   const pending = hero.play();
   if (pending) pending.catch(() => {});
 };
 if (hero && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
   hero.muted = true;
+  hero.defaultMuted = true;
   hero.playsInline = true;
   playHero();
   hero.addEventListener("loadeddata", playHero);
+  hero.addEventListener("canplay", playHero);
   hero.addEventListener("ended", playHero);
   document.addEventListener("visibilitychange", () => {
     if (document.visibilityState === "visible") playHero();
   });
+  const unlock = () => {
+    playHero();
+    if (!hero.paused) {
+      document.removeEventListener("touchstart", unlock);
+      document.removeEventListener("pointerdown", unlock);
+    }
+  };
+  document.addEventListener("touchstart", unlock, { passive: true });
+  document.addEventListener("pointerdown", unlock, { passive: true });
 }
 
 gsap.registerPlugin(
@@ -159,15 +173,6 @@ mm.add("(prefers-reduced-motion: no-preference)", () => {
       onEnter: (batch) => {
         gsap.from(batch, { y: 20, duration: 0.55, stagger: 0.04, clearProps: "transform" });
       }
-    });
-  }
-
-  if (hero) {
-    ScrollTrigger.create({
-      trigger: hero,
-      start: "top 90%",
-      end: "bottom 10%",
-      onToggle: (self) => (self.isActive ? playHero() : hero.pause())
     });
   }
 
