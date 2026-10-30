@@ -335,6 +335,9 @@ a { color: inherit; }
   padding: 0;
 }
 
+.notes { list-style: none; margin: 1.1rem 0 0; padding: 0; }
+.notes li { margin: 0 0 0.55rem; }
+
 .plays li {
   display: grid;
   place-items: center;
