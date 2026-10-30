@@ -67,38 +67,42 @@
     <p class="lede">Goals for Growth was covered in national newspapers such as Daily Dawn, Daily Pakistan Express, and Daily Khabrain Times.</p>
     <ul class="posts">
       <li>
-        <iframe src="https://www.instagram.com/p/DM-hRwKNgFM/embed" width="540" height="700" title="Instagram post" loading="lazy"></iframe>
+        <div class="embed">
+          <iframe src="https://www.instagram.com/p/DM-hRwKNgFM/embed" width="540" height="560" title="NJV school post" loading="lazy"></iframe>
+        </div>
       </li>
       <li>
-        <iframe src="https://www.instagram.com/p/DfCIlAEFxZK/embed" width="540" height="700" title="Instagram post" loading="lazy"></iframe>
+        <div class="embed">
+          <iframe src="https://www.instagram.com/p/DfCIlAEFxZK/embed" width="540" height="560" title="Pakistan Football Federation post" loading="lazy"></iframe>
+        </div>
+        <p class="credit">Awais Faiz (U15 FIFA WC player) was coached as part of GFG</p>
       </li>
-      <li>
-        <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fstory.php%3Fstory_fbid%3D1212635110878836%26id%3D100063970753081&amp;show_text=true&amp;width=500" width="500" height="680" title="Facebook post" loading="lazy" allow="encrypted-media"></iframe>
+      <li class="qaps">
+        <div class="embed">
+          <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fstory.php%3Fstory_fbid%3D1212635110878836%26id%3D100063970753081&amp;show_text=true&amp;width=500" width="500" height="560" title="Quaid-e-Azam Public School post" loading="lazy" allow="encrypted-media"></iframe>
+        </div>
+        <ul class="press">
+          <li>
+            <figure>
+              <img src="/media/winter/press-dawn.jpg" width="958" height="1800" alt="Daily Dawn, Lahore and Multan, 26 December 2025.">
+              <figcaption><strong>Daily Dawn, Lahore and Multan, 26 December 2025.</strong> The page covers the school visit. Government workers attended.</figcaption>
+            </figure>
+          </li>
+          <li>
+            <figure>
+              <img src="/media/winter/press-express.jpg" width="1021" height="1800" alt="Daily Pakistan Express, 26 December 2025.">
+              <figcaption><strong>Daily Pakistan Express, 26 December 2025.</strong> The page covers the school visit. Government workers attended.</figcaption>
+            </figure>
+          </li>
+          <li>
+            <figure>
+              <img src="/media/winter/press-khabrain.jpg" width="982" height="1800" alt="Daily Khabrain Times, Islamabad, 26 December 2025.">
+              <figcaption><strong>Daily Khabrain Times, Islamabad, 26 December 2025.</strong> The page covers the school visit. Government workers attended.</figcaption>
+            </figure>
+          </li>
+        </ul>
       </li>
     </ul>
-    <section class="group" id="papers">
-      <h2>Newspaper pages</h2>
-      <ul class="press">
-        <li>
-          <figure>
-            <img src="/media/winter/press-dawn.jpg" width="958" height="1800" alt="Daily Dawn, Lahore and Multan, 26 December 2025.">
-            <figcaption><strong>Daily Dawn, Lahore and Multan, 26 December 2025.</strong> The page covers the school visit. Government workers attended.</figcaption>
-          </figure>
-        </li>
-        <li>
-          <figure>
-            <img src="/media/winter/press-express.jpg" width="1021" height="1800" alt="Daily Pakistan Express, 26 December 2025.">
-            <figcaption><strong>Daily Pakistan Express, 26 December 2025.</strong> The page covers the school visit. Government workers attended.</figcaption>
-          </figure>
-        </li>
-        <li>
-          <figure>
-            <img src="/media/winter/press-khabrain.jpg" width="982" height="1800" alt="Daily Khabrain Times, Islamabad, 26 December 2025.">
-            <figcaption><strong>Daily Khabrain Times, Islamabad, 26 December 2025.</strong> The page covers the school visit. Government workers attended.</figcaption>
-          </figure>
-        </li>
-      </ul>
-    </section>
   </main>
   <footer class="site-foot">
     <p>Goals for Growth. Ran by Taimur Naeem</p>
@@ -119,5 +123,19 @@
   <script src="/vendor/ScrollToPlugin.min.js"></script>
   <script src="/vendor/lenis.min.js"></script>
   <script src="/js/motion.js"></script>
+  <script>
+    document.querySelectorAll(".embed iframe").forEach((frame) => {
+      addEventListener("message", (event) => {
+        if (event.source !== frame.contentWindow) return;
+        let data = event.data;
+        if (typeof data === "string") {
+          try { data = JSON.parse(data); } catch { return; }
+        }
+        if (!data || data.type !== "MEASURE" || !data.details || !data.details.height) return;
+        frame.style.height = data.details.height + "px";
+        frame.parentElement.classList.add("is-set");
+      });
+    });
+  </script>
 </body>
 </html>
