@@ -6,6 +6,8 @@ class Handler(SimpleHTTPRequestHandler):
         path = self.path.split("?", 1)[0]
         if path.rstrip("/") == "/gallery":
             self.path = "/gallery/index.html"
+        elif path.rstrip("/") == "/socials":
+            self.path = "/socials/index.html"
         return super().do_GET()
 
     def send_error(self, code, message=None, explain=None):

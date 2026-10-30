@@ -399,6 +399,10 @@ a { color: inherit; }
 .press img { display: block; width: 100%; height: auto; }
 .press figcaption { margin-top: 0.6rem; max-width: 62ch; }
 
+.posts { display: grid; gap: 1.5rem; margin: 0 0 2.5rem; padding: 0; list-style: none; }
+.posts iframe { width: min(100%, 540px); height: 42rem; border: 0; background: var(--paper); }
+@media (min-width: 900px) { .posts { grid-template-columns: 1fr 1fr; align-items: start; } }
+
 .clip {
   margin: 0 0 1.75rem;
 }

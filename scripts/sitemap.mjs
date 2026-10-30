@@ -1,7 +1,7 @@
 import { writeFileSync } from "node:fs";
 
 const origin = "https://goalsforgrowth.site";
-const routes = ["/", "/gallery"];
+const routes = ["/", "/gallery", "/socials"];
 
 const urls = routes
   .map((path) => `  <url><loc>${origin}${path}</loc></url>`)
